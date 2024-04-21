@@ -212,7 +212,7 @@ diff --git a/src/util/perf/cpu_trace.h b/src/util/perf/cpu_trace.h
 index 6cebb51..c1726b1 100644
 --- a/src/util/perf/cpu_trace.h
 +++ b/src/util/perf/cpu_trace.h
-@@ -28,19 +28,6 @@
+@@ -29,19 +29,6 @@
           util_perfetto_trace_end();                                          \
     } while (0)
 
@@ -221,7 +221,7 @@ index 6cebb51..c1726b1 100644
 - *
 - *   https://github.com/android/ndk/issues/1178
 - */
--#elif defined(ANDROID) && !defined(__cplusplus)
+-#elif DETECT_OS_ANDROID && !defined(__cplusplus)
 -
 -#include <cutils/trace.h>
 -
