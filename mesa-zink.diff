@@ -82,7 +82,7 @@ index f42f340..3146baf 100644
 +   /* once more testing has been done, use the #if 0 block */
 +   // Seems like there was not enough testing, reverting to legacy behaviour
 +
-+#if 1
++#if 0
     /* these drivers benefit from renderpass optimization */
     switch (screen->info.driver_props.driverID) {
     case VK_DRIVER_ID_MESA_LLVMPIPE:
