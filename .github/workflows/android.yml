@@ -32,7 +32,7 @@ jobs:
             --prefix=/tmp/zink \
             --cross-file "../build-crossfile" \
             -Dplatforms=android \
-            -Dplatform-sdk-version=26 \
+            -Dplatform-sdk-version=25 \
             -Dandroid-stub=true \
             -Dllvm=disabled \
             -Dxlib-lease=disabled \
@@ -47,8 +47,9 @@ jobs:
             -Dandroid-libbacktrace=disabled \
             -Dbuildtype=release
           ninja -C "build-android" install
+          mv /tmp/zink/lib/libOSMesa.so.8.0.0 /tmp/zink/lib/libOSMesa.so
       - name: Upload libraries
         uses: actions/upload-artifact@v2
         with:
           name: libzink_${{matrix.arch}}
-          path: /tmp/zink
+          path: /tmp/zink/lib/libOSMesa.so
