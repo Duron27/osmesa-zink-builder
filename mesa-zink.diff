@@ -82,7 +82,7 @@ index f42f340..3146baf 100644
 +   /* once more testing has been done, use the #if 0 block */
 +   // Seems like there was not enough testing, reverting to legacy behaviour
 +
-+#if 0
++#if 1
     /* these drivers benefit from renderpass optimization */
     switch (screen->info.driver_props.driverID) {
     case VK_DRIVER_ID_MESA_LLVMPIPE:
@@ -99,7 +99,7 @@ index f42f340..3146baf 100644
     u_trace_state_init();
  
 -   screen->loader_lib = util_dl_open(VK_LIBNAME);
-+   screen->loader_lib = (void*) strtoul(getenv("VULKAN_PTR"), NULL, 0x10);
++   screen->loader_lib = util_dl_open(VK_LIBNAME);
     if (!screen->loader_lib) {
        mesa_loge("ZINK: failed to load "VK_LIBNAME);
        goto fail;
@@ -212,7 +212,7 @@ diff --git a/src/util/perf/cpu_trace.h b/src/util/perf/cpu_trace.h
 index 6cebb51..c1726b1 100644
 --- a/src/util/perf/cpu_trace.h
 +++ b/src/util/perf/cpu_trace.h
-@@ -28,18 +28,6 @@
+@@ -28,19 +28,6 @@
           util_perfetto_trace_end();                                          \
     } while (0)
  
