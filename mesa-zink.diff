@@ -215,7 +215,7 @@ index 6cebb51..c1726b1 100644
 @@ -28,19 +28,6 @@
           util_perfetto_trace_end();                                          \
     } while (0)
- 
+
 -/* NOTE: for now disable atrace for C++ to workaround a ndk bug with ordering
 - * between stdatomic.h and atomic.h.  See:
 - *
@@ -228,6 +228,7 @@ index 6cebb51..c1726b1 100644
 -#define _MESA_TRACE_BEGIN(name)                                              \
 -   atrace_begin(ATRACE_TAG_GRAPHICS, name)
 -#define _MESA_TRACE_END() atrace_end(ATRACE_TAG_GRAPHICS)
- 
+-
  #else
- 
+
+ #define _MESA_TRACE_BEGIN(name)
